@@ -15,7 +15,8 @@ message CreateProfileRequest {
    string street_address = 4;
    string zip_code =5;
    string city = 6;
-   string profile_picture_url = 7;
+   optional string profile_picture_url = 7;
+   optional string phone = 8;
 }
 
 message GetProfileRequest{
@@ -45,5 +46,6 @@ message ProfileResponse {
    string street_address = 4;
    string zip_code =5;
    string city = 6;
-   string profile_picture_url = 7;
+   optional string profile_picture_url = 7;
+   optional string phone = 8;
 }
