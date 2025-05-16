@@ -27,6 +27,7 @@ namespace LocalUserServiceProvider.Services
                 StreetAddress = userProfile.StreetAddress,
                 PostalCode = userProfile.ZipCode,
                 City = userProfile.City,
+                Phone = userProfile.Phone,
             };
         }
 
@@ -53,6 +54,7 @@ namespace LocalUserServiceProvider.Services
                     StreetAddress = profile.StreetAddress,
                     PostalCode = profile.ZipCode,
                     City = profile.City,
+                    Phone = profile.Phone,
                 };
             }
             );
