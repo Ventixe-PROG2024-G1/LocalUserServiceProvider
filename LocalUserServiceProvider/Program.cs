@@ -20,6 +20,7 @@ builder.Services.AddGrpcClient<AccountContract.AccountContractClient>(x =>
 
 var app = builder.Build();
 
+app.MapGet("/", () => "LocalUserServiceProvider is running.");
 app.UseHttpsRedirection();
 
 app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
