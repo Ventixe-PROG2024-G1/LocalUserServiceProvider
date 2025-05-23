@@ -10,17 +10,17 @@ namespace LocalAccountServiceProvider.Controllers
     {
         private readonly IAppUserService _appUserService = appUserService;
 
-        [HttpGet]
-        public async Task<IActionResult> GetAllUsers()
-        {
-            var users = await _appUserService.GetAllAppUsers();
+        //[HttpGet]
+        //public async Task<IActionResult> GetAllUsers()
+        //{
+        //    var users = await _appUserService.GetAllAppUsers();
 
-            if (users == null)
-            {
-                return NotFound();
-            }
-            return Ok(users);
-        }
+        //    if (users == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(users);
+        //}
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUser(string id)

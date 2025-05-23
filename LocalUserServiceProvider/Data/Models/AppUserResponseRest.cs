@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
-namespace LocalAccountServiceProvider.Models
+namespace LocalUserServiceProvider.Data.Models
 {
-    public class AppUser
+    public class AppUserResponseRest
     {
-        public string Id { get; set; } = null!;
+        public string? Id { get; set; }
 
-        public string Email { get; set; } = null!;
+        public string? Email { get; set; }
 
         public string? FirstName { get; set; }
 
@@ -24,5 +24,7 @@ namespace LocalAccountServiceProvider.Models
         public string? City { get; set; }
 
         public string? Phone { get; set; }
+
+        public string? Error { get; set; }
     }
 }
