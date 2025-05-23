@@ -1,10 +1,11 @@
-﻿using LocalAccountServiceProvider.Models;
+﻿using LocalUserServiceProvider.Data.Models;
 
 namespace LocalUserServiceProvider.Services
 {
     public interface IAppUserService
     {
-        Task<IEnumerable<AppUser>> GetAllAppUsers();
-        Task<AppUser> GetAppUserById(string id);
+        //Task<IEnumerable<AppUser>> GetAllAppUsers();
+
+        Task<AppUserResponseRest> GetAppUserById(string id);
     }
 }
