@@ -1,18 +1,16 @@
 ﻿using LocalUserServiceProvider.Data.DTOs;
 using LocalUserServiceProvider.Data.Models;
-using System.Net.Http;
 using System.Text.Json;
 
 namespace LocalUserServiceProvider.Services
 {
-    public class AppUserService(ProfileContract.ProfileContractClient profileClient,
-                                AccountContract.AccountContractClient accountClient, HttpClient httpClient) : IAppUserService
+    public class AppUserService(HttpClient httpClient) : IAppUserService
     {
-        private readonly ProfileContract.ProfileContractClient _profileClient = profileClient;
-        private readonly AccountContract.AccountContractClient _accountClient = accountClient;
+        //private readonly ProfileContract.ProfileContractClient _profileClient = profileClient;
+        //private readonly AccountContract.AccountContractClient _accountClient = accountClient;
 
-        private readonly string _accountClientUrl = "https://localhost:7166/api/account";
-        private readonly string _profileClientUrl = "https://localhost:7275/api/profile";
+        private readonly string _accountClientUrl = "https://ventixe-account-provider.azurewebsites.net/api/account";
+        private readonly string _profileClientUrl = "https://ventixe-profile-provider.azurewebsites.net/api/profile";
 
         private readonly HttpClient _httpClient = httpClient;
 

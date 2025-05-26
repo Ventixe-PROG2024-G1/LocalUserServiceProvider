@@ -17,9 +17,9 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
   </ItemGroup>
 
-	<ItemGroup>
+	<!--<ItemGroup>
 		<Protobuf Include="Protos/account.proto" GrpcServices="Client" />
 		<Protobuf Include="Protos/accountprofile.proto" GrpcServices="Client" />
-	</ItemGroup>
+	</ItemGroup>-->
 
 </Project>
