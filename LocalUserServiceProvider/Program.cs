@@ -6,17 +6,19 @@ builder.Services.AddControllers();
 
 builder.Services.AddOpenApi();
 
+builder.Services.AddHttpClient();
+
 builder.Services.AddScoped<IAppUserService, AppUserService>();
 
-builder.Services.AddGrpcClient<ProfileContract.ProfileContractClient>(x =>
-{
-    x.Address = new Uri(builder.Configuration["ProfileServiceProvider"]!);
-});
+//builder.Services.AddGrpcClient<ProfileContract.ProfileContractClient>(x =>
+//{
+//    x.Address = new Uri(builder.Configuration["ProfileServiceProvider"]!);
+//});
 
-builder.Services.AddGrpcClient<AccountContract.AccountContractClient>(x =>
-{
-    x.Address = new Uri(builder.Configuration["AccountServiceProvider"]!);
-});
+//builder.Services.AddGrpcClient<AccountContract.AccountContractClient>(x =>
+//{
+//    x.Address = new Uri(builder.Configuration["AccountServiceProvider"]!);
+//});
 
 var app = builder.Build();
 
