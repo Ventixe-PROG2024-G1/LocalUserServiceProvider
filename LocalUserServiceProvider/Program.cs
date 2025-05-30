@@ -10,16 +10,6 @@ builder.Services.AddHttpClient();
 
 builder.Services.AddScoped<IAppUserService, AppUserService>();
 
-//builder.Services.AddGrpcClient<ProfileContract.ProfileContractClient>(x =>
-//{
-//    x.Address = new Uri(builder.Configuration["ProfileServiceProvider"]!);
-//});
-
-//builder.Services.AddGrpcClient<AccountContract.AccountContractClient>(x =>
-//{
-//    x.Address = new Uri(builder.Configuration["AccountServiceProvider"]!);
-//});
-
 var app = builder.Build();
 
 app.MapGet("/", () => "LocalUserServiceProvider is running.");
