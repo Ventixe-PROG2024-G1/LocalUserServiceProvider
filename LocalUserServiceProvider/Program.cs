@@ -1,3 +1,4 @@
+using LocalUserServiceProvider.Middlewares;
 using LocalUserServiceProvider.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,7 @@ app.UseHttpsRedirection();
 app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
 app.UseAuthentication();
+app.UseMiddleware<ApiKeyMiddleware>();
 
 app.UseAuthorization();
 
