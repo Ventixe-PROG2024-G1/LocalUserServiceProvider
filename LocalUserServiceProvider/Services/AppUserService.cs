@@ -1,13 +1,16 @@
 ﻿using LocalUserServiceProvider.Data.DTOs;
 using LocalUserServiceProvider.Data.Models;
+using Microsoft.Extensions.Configuration;
 using System.Text.Json;
 
 namespace LocalUserServiceProvider.Services
 {
-    public class AppUserService(HttpClient httpClient) : IAppUserService
+    public class AppUserService(HttpClient httpClient, IConfiguration configuration) : IAppUserService
     {
         private readonly string _accountClientUrl = "https://ventixe-account-provider.azurewebsites.net/api/account";
         private readonly string _profileClientUrl = "https://ventixe-profile-provider.azurewebsites.net/api/profile";
+
+        private readonly string _apiKey = configuration.GetValue<string>("SecretKeys:AuthenticationKey")!;
 
         private readonly HttpClient _httpClient = httpClient;
 
@@ -34,7 +37,10 @@ namespace LocalUserServiceProvider.Services
 
         public async Task<T?> GetRequest<T>(string url)
         {
-            var response = await _httpClient.GetAsync(url);
+            var request = new HttpRequestMessage(HttpMethod.Get, url);
+            request.Headers.Add("X-Api-Key", _apiKey);
+
+            var response = await _httpClient.SendAsync(request);
 
             if (!response.IsSuccessStatusCode) return default;
 
